@@ -1,0 +1,2 @@
+{ "name": "gcsd-athletics-site", "private": true, "type": "module",
+  "scripts": { "test": "node --test", "refresh": "node src/refresh.mjs --once", "build": "node tools/build-static.mjs" } }

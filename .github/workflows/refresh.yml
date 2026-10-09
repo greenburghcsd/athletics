@@ -18,6 +18,9 @@ jobs:
       - name: Pull the portal
         run: node src/refresh.mjs --once
         continue-on-error: true
+      - name: Add the weather forecast
+        run: node src/weather.mjs
+        continue-on-error: true
       - run: node tools/build-static.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

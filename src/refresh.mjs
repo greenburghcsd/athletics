@@ -48,7 +48,7 @@ export async function refreshOnce({ fetchImpl = fetch, file = FILE, now = new Da
     const out = { updatedAt: now.toISOString(), source: 'woodlandsathletics.digitalsports.com', events,
       health: { ok: true, lastSuccess: now.toISOString(), lastError: null, games: events.length, duplicatesDropped, unparsedRows: problems.length, statusRows: html.rows.length, statusProblems: html.problems.length } };
     const changes = diff(prev.events || [], events, today);
-    out.changes = [...changes, ...(prev.changes || []).filter((c) => c.at > new Date(now - 7 * 864e5).toISOString())].slice(0, 200);
+    out.changes = [...changes, ...(prev.changes || []).filter((c) => !falseResched(c) && c.at > new Date(now - 7 * 864e5).toISOString())].slice(0, 200);
     const tmp = file + '.tmp'; writeFileSync(tmp, JSON.stringify(out)); renameSync(tmp, file);
     if (changes.length) log(`${changes.length} schedule change(s)`);
     return out;
@@ -60,6 +60,11 @@ export async function refreshOnce({ fetchImpl = fetch, file = FILE, now = new Da
   }
 }
 
+// Old published files stored "YYYY-MM-DD HH:mm:ss"; newer ones use "T". Compare them as the same moment.
+const sameStart = (v) => String(v).replace(' ', 'T').slice(0, 16);
+// A "rescheduled" note whose old time equals the new time is a false alarm (left by the old format difference).
+export const falseResched = (c) => c && c.kind === 'rescheduled' && /(\d{4}-\d\d-\d\d \S+) \(was \1\)\s*$/.test(c.text || '');
+
 // What changed since the last pull (upcoming games only): the list Michael can glance at.
 export function diff(before, after, today, at = new Date().toISOString()) {
   const b = new Map(before.map((e) => [e.id, e])), a = new Map(after.map((e) => [e.id, e])), out = [];
@@ -70,7 +75,7 @@ export function diff(before, after, today, at = new Date().toISOString()) {
     const o = b.get(id);
     if (!o) out.push({ at, kind: 'added', id, text: label(e) });
     else if (o.status !== e.status) out.push({ at, kind: e.status, id, text: label(e) });
-    else if (o.start !== e.start) out.push({ at, kind: 'rescheduled', id, text: `${label(e)} (was ${o.date} ${o.time})` });
+    else if (sameStart(o.start) !== sameStart(e.start)) out.push({ at, kind: 'rescheduled', id, text: `${label(e)} (was ${o.date} ${o.time})` });
     else if (o.venue !== e.venue) out.push({ at, kind: 'venue', id, text: `${label(e)} (venue now ${e.venue})` });
   }
   for (const [id, o] of b) if (o.date >= today && !a.has(id)) out.push({ at, kind: 'removed', id, text: label(o) });

@@ -92,3 +92,12 @@ test('changes are detected', async () => {
   assert.ok(kinds.includes('rescheduled')); assert.ok(kinds.includes('removed'));
   assert.deepEqual(diff(first.events, first.events, '2026-10-05'), []);
 });
+
+test('old space-format start vs new T-format start is not a reschedule', async () => {
+  const { diff, falseResched } = await import('../src/refresh.mjs');
+  const e = { id: '1', date: '2026-10-10', time: '1:30PM', status: 'scheduled', gender: 'Boys', level: 'Varsity', sport: 'Football', homeAway: 'home', opponent: 'X', venue: 'V' };
+  assert.equal(diff([{ ...e, start: '2026-10-10 13:30:00' }], [{ ...e, start: '2026-10-10T13:30:00' }], '2026-10-01').length, 0);
+  assert.equal(diff([{ ...e, start: '2026-10-10T13:30:00' }], [{ ...e, time: '2PM', start: '2026-10-10T14:00:00' }], '2026-10-01')[0].kind, 'rescheduled');
+  assert.equal(falseResched({ kind: 'rescheduled', text: 'Boys Varsity Football vs. X, 2026-10-10 1:30PM (was 2026-10-10 1:30PM)' }), true);
+  assert.equal(falseResched({ kind: 'rescheduled', text: 'Boys Varsity Football vs. X, 2026-10-10 2PM (was 2026-10-10 1:30PM)' }), false);
+});

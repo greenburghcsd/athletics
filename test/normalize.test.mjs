@@ -45,3 +45,8 @@ test('fields', () => {
 test('meets with many teams read as multi-team', () => assert.match(byId(7657928).opponent, /^Multiple Teams/));
 
 test('summary', () => console.log(`${events.length} events, ${new Set(events.map((e) => e.teamKey)).size} teams`));
+
+test('portal timestamps with a space are normalised to ISO T form', () => {
+  const [e] = normalizeAll([{ id: 1, start: '2026-10-06 16:30:00', end: '2026-10-06 17:59:00', title: 'Boys (MOD) Football [H]', description: '4:30PM Vs Ossining High School - Woodlands High School - ' }]).events;
+  assert.equal(e.start, '2026-10-06T16:30:00'); assert.equal(e.end, '2026-10-06T17:59:00'); assert.equal(e.date, '2026-10-06'); assert.equal(e.time, '4:30PM');
+});

@@ -34,6 +34,8 @@ function splitDescription(desc, htmlLoc) {
 }
 
 export function normalizeEvent(raw, status = {}) {
+  // The live portal sends "2026-10-06 16:30:00" (space); calendars and sorting want "2026-10-06T16:30:00".
+  raw = { ...raw, start: String(raw.start).replace(' ', 'T'), end: String(raw.end).replace(' ', 'T') };
   const t = raw.title.match(/^(.*?)\s+\((V|JV|MOD)\)\s+(.*?)\s+\[(H|A)\]$/);
   if (!t) return null; // unknown shape: caller reports it, never silently guesses
   const genderKey = t[1].trim().toLowerCase();

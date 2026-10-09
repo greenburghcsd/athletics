@@ -26,3 +26,6 @@ One-time setup, about 10 minutes. Use a district-owned GitHub account or organiz
 - The portal asks scrapers to wait 10 seconds between requests. The job does, so a run takes a couple of minutes. Do not shorten it.
 - The portal has not been reached from this environment, so the first real run is the real test. If it fails, the Actions log shows why and the site keeps serving the seed data in `data/schedule.json`.
 - Calendar subscriptions live at `.../ics/all.ics` and per team in `.../ics/`. RSS is `.../rss.xml` and per team in `.../rss/`.
+
+## Weather chip
+The refresh job also asks a free forecast service (Open-Meteo) for the Woodlands campus forecast and saves it into `schedule.json`, so visitors' phones never contact the weather service. If that step fails, the page simply shows no weather chip. Check the "Add the weather forecast" step in the Actions log after the first run.

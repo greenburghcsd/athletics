@@ -57,3 +57,7 @@ In `config.json`, `boosters`, `sponsor` and `powered` each take `{ "label": "...
 - `?lang=es` opens in Spanish, `?date=2026-10-05` picks a week. Sundays open the coming week.
 - To print: Letter, Landscape, Margins None, Background graphics on, or choose Save as PDF.
 - A change that is not showing yet: press **Run workflow** on the Refresh athletics schedule action, wait about a minute, then press Check for updates.
+
+## Share preview and icons
+- `assets/og.jpg` (1200×630) is the preview image when the link is texted or posted. The `og:` tags in `assets/demo.html` point to `https://greenburghcsd.github.io/athletics/og.jpg`; change both URLs if the address changes. Previews are per page, not per game.
+- Sport icons come from Tabler Icons (MIT license), embedded in `widget.js`.

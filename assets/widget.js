@@ -133,17 +133,17 @@
     'Reduce motion': 'Reducir movimiento', 'Your phone already asks for this.': 'Tu teléfono ya lo pide.', 'Turns off sliding and fading.': 'Desactiva los deslizamientos y desvanecimientos.',
     'Get change alerts': 'Recibe avisos de cambios',
     'Subscribe to the calendar and your phone updates games when the schedule changes.': 'Suscríbete al calendario y tu teléfono actualiza los juegos cuando cambie el horario.',
-    'Show me how': 'Muéstrame cómo',
+    'Show me how': 'Muéstrame cómo', 'Print preview': 'Vista previa de impresión', 'Close': 'Cerrar', 'Hide steps': 'Ocultar pasos', 'Use your browser’s install option, or bookmark this page. Steps are in Settings.': 'Usa la opción de instalar de tu navegador, o guarda esta página como favorito. Los pasos están en Ajustes.', 'Show the home screen tip again': 'Volver a mostrar el consejo de pantalla de inicio', 'iPhone or iPad': 'iPhone o iPad', 'Android': 'Android', 'Computer': 'Computadora', 'This device': 'Este dispositivo', 'On a computer, click the install icon at the right end of the address bar in Chrome or Edge, or open the <b>⋮</b> menu, then <b>Save and share</b>, then <b>Install page as app</b>. In Safari on a Mac, choose <b>File</b>, then <b>Add to Dock</b>. You can also bookmark it with Ctrl+D (⌘D on a Mac).': 'En una computadora, haz clic en el ícono de instalar al final de la barra de direcciones en Chrome o Edge, o abre el menú <b>⋮</b>, luego <b>Guardar y compartir</b> y <b>Instalar página como app</b>. En Safari de Mac, elige <b>Archivo</b> y luego <b>Añadir al Dock</b>. También puedes guardarla como favorito con Ctrl+D (⌘D en Mac).', 'Follow the Falcons': 'Sigue a los Falcons', 'Show': 'Mostrar', 'Hide': 'Ocultar', 'Recent changes ({n})': 'Cambios recientes ({n})',
     'Add to home screen': 'Añadir a la pantalla de inicio', 'It opens like an app, with nothing to download.': 'Se abre como una app, sin descargar nada.',
     'What to show': 'Qué mostrar', 'Countdowns': 'Cuentas regresivas', 'For example “Starts in 30 min”.': 'Por ejemplo, “Empieza en 30 min”.',
     'Weather on home games': 'Clima en los juegos de local', 'Calendar opens as': 'El calendario se abre en',
     'Game reminders': 'Recordatorios de juegos', 'Your calendar app alerts you before each game. Pick up to two.': 'Tu app de calendario te avisa antes de cada juego. Elige hasta dos.',
-    'None': 'Ninguno', '30 min': '30 min', '1 hour': '1 hora', '2 hours': '2 horas', 'Alert': 'Aviso', 'Second alert': 'Segundo aviso',
+    'None': 'Ninguno', '30 min': '30 min', '1 hour': '1 hora', '2 hours': '2 horas', 'Alert': 'Aviso', 'First alert': 'Primer aviso', 'Second alert': 'Segundo aviso',
     'At time of game': 'A la hora del juego', '1 day before': '1 día antes', '2 days before': '2 días antes', '1 hour before': '1 hora antes', '2 hours before': '2 horas antes', '{n} minutes before': '{n} minutos antes',
     'Changing this later? Subscribe again from the Alerts tab, then remove the old calendar. Google Calendar may use its own default alert instead.': '¿Quieres cambiarlo después? Vuelve a suscribirte desde la pestaña Alertas y elimina el calendario anterior. Google Calendar puede usar su propio aviso predeterminado.',
     'Remove': 'Quitar', 'No teams followed yet. Tap ☆ on the Teams tab.': 'Aún no sigues ningún equipo. Toca ☆ en la pestaña Equipos.',
     'Reset': 'Restablecer', 'Clears your followed teams and these settings from this device. Nothing is sent anywhere.': 'Borra tus equipos y estos ajustes de este dispositivo. No se envía nada a ningún lugar.',
-    'Reset everything': 'Restablecer todo',
+    'Reset everything': 'Restablecer todo', 'Yes, reset everything': 'Sí, restablecer todo', 'Are you sure? This clears your teams and settings on this device.': '¿Seguro? Esto borra tus equipos y ajustes en este dispositivo.', 'Cancel': 'Cancelar',
     'Settings are saved on this device only. No account, no tracking.': 'Los ajustes se guardan solo en este dispositivo. Sin cuenta y sin rastreo.',
     'Language': 'Idioma',
     'Allow pop-ups to print': 'Permite las ventanas emergentes para imprimir', 'Link copied': 'Enlace copiado',
@@ -204,18 +204,20 @@
     'button{font:inherit;color:inherit;cursor:pointer}',
     'a{color:var(--green-dk)}',
     ':focus-visible{outline:3px solid var(--ink);outline-offset:2px}',
-    '.hero{container-type:inline-size;position:relative;overflow:hidden;background:#0b3d24;border-bottom:3px solid var(--green)}',
+    '.hero{container-type:inline-size;position:relative;overflow:hidden;background:#0b3d24}',
     '.hero-bg{position:absolute;left:0;right:0;top:-18px;bottom:-18px;background:#0b3d24 var(--bg-img) center/cover no-repeat;will-change:transform}',
     '.hero-in{position:relative;display:flex;flex-direction:column;align-items:center;--h:clamp(62px,17cqw,150px);padding:calc(var(--h) * .2) 16px calc(var(--h) * .14)}',
     '.logos{display:flex;align-items:center;justify-content:center;gap:calc(var(--h) * .07)}',
+    '@container (max-width:460px){.hero-in{padding-top:calc(var(--h) * .2 + 34px)}}',
     '.hero-in img{display:block;height:var(--h);width:auto;flex:none;max-width:none}',
     '.hero-in img.wm{height:calc(var(--h) * .66)}',
-    '.hero-up{margin:calc(var(--h) * .1) 0 0;text-align:center;color:#fff;font-size:clamp(11px,1.2cqw + 5px,14px);letter-spacing:.05em;text-transform:uppercase;line-height:1.3;text-shadow:0 1px 3px rgba(0,0,0,.65)}',
+    '.hero-up{position:relative;margin:0;padding:9px 16px;text-align:center;background:#FECB00;color:#000;font-size:clamp(12px,1.2cqw + 6px,14px);letter-spacing:.05em;text-transform:uppercase;line-height:1.3;font-weight:600}',
     '.hero-up .tm{white-space:nowrap}',
     '.hero-up b{display:inline;margin-right:.45em;font:inherit;letter-spacing:inherit;text-transform:inherit;font-weight:inherit;color:inherit;opacity:1}',
-    '.spirit .hero{border-bottom:6px solid var(--yellow)}',
+    '',
     '.intro{padding:14px 16px 12px;border-bottom:1.5px solid var(--gray-30)}',
     '.intro h1{margin:0;font-size:20px;line-height:1.2}',
+    '.fold{display:flex;justify-content:space-between;align-items:center;width:calc(100% - 32px);margin:14px 16px 4px;min-height:44px;padding:0 14px;border:1.5px solid var(--gray-30);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;font-weight:600}.card.lst.two{display:grid;grid-template-columns:1fr 1fr;margin-top:8px}.card.lst.two .row{border-top:1px solid var(--line,rgba(128,128,128,.25))}.card.lst.two .row:nth-child(-n+2){border-top:0}.card.lst.two .row:nth-child(odd){border-right:1px solid var(--line,rgba(128,128,128,.25))}.plat>b{display:block}.plat p{margin:2px 0 8px}',
     '.intro p{margin:3px 0 0;font-size:14px;color:var(--ink-2)}',
     '.hd{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;padding:14px 16px 12px;border-bottom:3px solid var(--green)}',
     '.hd h2{margin:0;font-size:19px;line-height:1.15}',
@@ -337,8 +339,8 @@
     '.chip[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}',
     '.list{list-style:none;margin:0;padding:0 16px}',
     '.g{border-bottom:1px solid var(--gray-30)}',
-    '.gb{width:100%;text-align:left;border:0;background:none;display:grid;grid-template-columns:72px 1fr auto;gap:10px;padding:13px 0;align-items:start}',
-    '.t{font-weight:700;font-size:17px;color:var(--green-dk);font-variant-numeric:tabular-nums}',
+    '.gb{width:100%;text-align:left;border:0;background:none;display:grid;grid-template-columns:max-content minmax(0,1fr) auto;gap:10px;padding:13px 0;align-items:start}',
+    '.t{white-space:nowrap;font-weight:700;font-size:17px;color:var(--green-dk);font-variant-numeric:tabular-nums}',
     '.who{font-weight:700;display:block}',
     '.opp{display:block;margin-top:1px}',
     '.tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px}',
@@ -429,7 +431,7 @@
     '.dsp .dg{font-size:1.2em;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border:.15em solid currentColor;border-radius:99px;padding:.15em .7em;white-space:nowrap}.dsp .dr.h .dg{color:#7fd05a}.dsp .dr.a .dg{color:#f2c94c}.dsp .dr.x .dg{color:#ff8f86}',
     '.dsp .dempty{flex:1;display:flex;align-items:center;justify-content:center;font-size:4em;color:#cfe8d9}',
     '.dsp .df{display:flex;justify-content:space-between;align-items:center;margin-top:1.6vh;font-size:1.4em;color:#cfe8d9}.dsp .dd{display:flex;gap:.6em}.dsp .dd i{width:.8em;height:.8em;border-radius:50%;background:#34403b}.dsp .dd i.on{background:#fecb00}',
-    '.spirit .sub h3.wr{text-transform:none;letter-spacing:-.01em}.langb{position:absolute;z-index:3;top:8px;right:8px;font-size:12px;font-weight:600;color:#fff;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.35);padding:3px 9px;border-radius:999px;backdrop-filter:blur(6px)}',
+    '.spirit .sub h3.wr{text-transform:none;letter-spacing:-.01em}.langb{position:absolute;z-index:3;top:8px;right:8px;display:flex;border:1px solid rgba(255,255,255,.45);border-radius:999px;overflow:hidden;background:rgba(0,0,0,.4);backdrop-filter:blur(6px)}.langb button{min-height:32px;min-width:40px;padding:0 10px;font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:transparent;border:0}.langb button[aria-pressed=true]{background:#fff;color:#000}',
     '.spirit .g{margin:8px 0;border:1.5px solid var(--gray-30);border-left:6px solid var(--gray);border-radius:10px;padding:0 12px}',
     '.spirit .g.home{background:var(--home-bg);border-color:var(--home-bd);border-left-color:var(--green)}',
     '.spirit .g.away{background:var(--away-bg);border-color:var(--away-bd);border-left-color:var(--yellow)}',
@@ -440,7 +442,7 @@
     '.spirit .day i.none{background:transparent}',
     '.spirit .nav button[aria-current=page]{box-shadow:inset 0 4px 0 var(--yellow);color:var(--green-dk)}',
     '.spirit .grp{color:var(--green-dk)}',
-    '@media (max-width:420px){.intro h1{font-size:18px}.gb{grid-template-columns:66px 1fr auto}.spirit .t{font-size:18px}.team .btn{min-height:40px;padding:0 10px;font-size:14px}.strip{gap:2px;padding-inline:4px}.wk{width:26px}.more{padding-left:0}}',
+    '@media (max-width:420px){.intro h1{font-size:18px}.gb{grid-template-columns:max-content minmax(0,1fr) auto}.spirit .t{font-size:18px}.team .btn{min-height:40px;padding:0 10px;font-size:14px}.strip{gap:2px;padding-inline:4px}.wk{width:26px}.more{padding-left:0}}',
     '@media (prefers-reduced-motion:no-preference){.g{transition:background .15s}}',
     '@media (prefers-reduced-motion:no-preference){',
     '.srow{scroll-behavior:smooth}',
@@ -483,8 +485,10 @@
     '.tg[aria-checked=true]{background:var(--green)}.tg[aria-checked=true]::after{transform:translateX(20px)}',
     '.w.dark .tg:not([aria-checked=true]){background:#4a5550}',
     '.sw{border-top:1px solid var(--gray-30);padding:6px 0}.sw:first-of-type{border-top:0}.hlp{color:var(--ink-2)}',
-    '.intro{border-bottom:0;padding:18px 20px 6px}.intro h1{font-size:28px;font-weight:800;letter-spacing:-.02em}.intro p{margin:2px 0 0;color:var(--ink-2)}',
+    '.intro{border-bottom:0;padding:18px 20px 6px}.intro h1{font-size:28px;font-weight:700;letter-spacing:-.01em}.intro p{margin:2px 0 0;color:var(--ink-2)}',
     '.sub h3{letter-spacing:-.01em}',
+    '.sub h3,.dayh{text-wrap:balance}.subr .lnk{white-space:nowrap}',
+    '@media (max-width:480px){.sub h3,.dayh{font-size:15px}.spirit .sub h3,.spirit .dayh{letter-spacing:.015em}.sub{gap:6px}}',
     '.toast{background:rgba(30,30,30,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}',
     '@media (max-width:420px){.intro h1{font-size:26px}}',
     '.scroll{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}.scroll::-webkit-scrollbar{display:none}',
@@ -500,22 +504,22 @@
 
   /* outlined sport icons, one per sport the portal lists; falls back to a trophy */
   var SI = {
-    baseball: '<circle cx="12" cy="12" r="8.800"/><path d="M5.800 6.200c2.500 2.700 2.500 8.900 0 11.600M18.200 6.200c-2.500 2.700-2.500 8.900 0 11.600M5.600 9.300l2 .6M5.900 12.200l2.100.1M5.700 15l2-.7M18.400 9.300l-2 .6M18.100 12.200l-2.100.1M18.300 15l-2-.7"/>',
+    baseball: '<path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/>',
     softball: '<path d="M12 3.500l8.500 8.500-8.500 8.500L3.500 12z"/><circle cx="12" cy="12" r="1.600"/><path d="M12 20.500v0M10.200 18.700l1.800 1.800 1.800-1.800"/>',
-    basketball: '<circle cx="12" cy="12" r="8.500"/><path d="M12 3.500v17M3.500 12h17M6 6.200c3.200 3.200 3.200 8.400 0 11.600M18 6.200c-3.200 3.200-3.200 8.400 0 11.600"/>',
-    bowling: '<circle cx="9" cy="15" r="5.500"/><circle cx="7.600" cy="13.200" r=".7"/><circle cx="10.400" cy="13.200" r=".7"/><circle cx="9" cy="16" r=".7"/><path d="M17.500 3.500c-1.300 0-1.800 1.300-1.300 2.300.5 1-.8 1.900-.8 3.700 0 1 .4 1.500.4 2.500h3.400c0-1 .4-1.500.4-2.500 0-1.800-1.300-2.700-.8-3.700.5-1 0-2.300-1.300-2.300z"/><path d="M15.500 7.500h4"/>',
-    cross: '<path d="M3.500 6.500v10.500h17v-2.200c0-1.100-.8-1.900-1.900-2.100l-4-.8-2.600-3.600-3.200 1.800-2.300-2.300z"/><path d="M9.500 11l1.600 1.600M11.800 9.800l1.600 1.600"/><path d="M3.500 17v1.800M7.500 17v1.800M11.500 17v1.800M15.500 17v1.800M19.500 17v1.800"/>',
+    basketball: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M5.65 5.65l12.7 12.7"/><path d="M5.65 18.35l12.7 -12.7"/><path d="M12 3a9 9 0 0 0 9 9"/><path d="M3 12a9 9 0 0 1 9 9"/>',
+    bowling: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M11 9l0 .01"/><path d="M15 8l0 .01"/><path d="M14 12l0 .01"/>',
+    cross: '<path d="M11.007 5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 17l5 1l.75 -1.5"/><path d="M15 21v-4l-4 -3l1 -6"/><path d="M7 12v-3l5 -1l3 3l3 1"/>',
     fencing: '<path d="M6 9.500a6 6 0 0 1 12 0v4.500a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M6 11.500h12M6.200 14.500h11.600M9 6.500v11.500M12 5.500v12.500M15 6.500v11.500M8.500 21h7"/>',
     flag: '<path d="M6 3.500V21M6 4.500h12.500l-3.500 4 3.500 4H6"/>',
-    football: '<path d="M4.200 19.800C3 11.200 11.200 3 19.800 4.200 21 12.800 12.800 21 4.200 19.800z"/><path d="M9 15l6-6M10.600 10.600l1.300 1.300M12.200 12.200l1.300 1.300M8 13.200l1.300 1.300"/>',
+    football: '<path d="M15 9l-6 6"/><path d="M10 12l2 2"/><path d="M12 10l2 2"/><path d="M8 21a5 5 0 0 0 -5 -5"/><path d="M16 3c-7.18 0 -13 5.82 -13 13a5 5 0 0 0 5 5c7.18 0 13 -5.82 13 -13a5 5 0 0 0 -5 -5"/><path d="M16 3a5 5 0 0 0 5 5"/>',
     cheer: '<path d="M3.500 10v4h3.500l8.500 4V6L7 10z"/><path d="M18.500 9.500c1.500 1.200 1.500 3.800 0 5M7 14l1.200 5h2.600l-1.300-4.500"/>',
-    golf: '<path d="M8 20.500V3.500l8.500 4L8 11.500"/><path d="M3.500 20.500h17"/><circle cx="15.500" cy="18" r="1.400"/>',
+    golf: '<path d="M12 18v-15l7 4l-7 4"/><path d="M9 17.67c-.62 .36 -1 .82 -1 1.33c0 1.1 1.8 2 4 2s4 -.9 4 -2c0 -.5 -.38 -.97 -1 -1.33"/>',
     indoor: '<circle cx="12" cy="13.500" r="7"/><path d="M12 6.500V3.500M9.500 3.500h5M12 13.500l3.200-2.600"/>',
     track: '<rect x="3" y="6.500" width="18" height="11" rx="5.500"/><rect x="6.500" y="10" width="11" height="4" rx="2"/>',
-    soccer: '<circle cx="12" cy="12" r="8.800"/><path d="M12 8.500l3 2.200-1.100 3.500h-3.800L9 10.700z"/><path d="M12 8.500V3.300M15 10.700l5-1.600M13.900 14.200l3.100 4.200M10.100 14.200L7 18.400M9 10.700L4 9.100"/>',
-    swim: '<circle cx="16.500" cy="6" r="2"/><path d="M5.500 12.500l5-3.500 4.500 1.800"/><path d="M3 16.500c1.500-1.400 3-1.400 4.500 0s3 1.400 4.500 0 3-1.400 4.500 0 3 1.400 4.500 0M3 20.500c1.500-1.400 3-1.400 4.500 0s3 1.400 4.500 0 3-1.400 4.500 0 3 1.400 4.500 0"/>',
-    tennis: '<ellipse cx="9.500" cy="9.500" rx="5.200" ry="6.600" transform="rotate(-45 9.500 9.500)"/><path d="M13.500 13.500l6.500 6.500M6.500 6.500l6 6"/><circle cx="18" cy="6" r="2.200"/>',
-    volleyball: '<circle cx="12" cy="12" r="8.800"/><path d="M12 3.200c-1.800 4-1.300 8 2 11.500M3.700 9.500c4.500-1.300 9 .2 11.300 5.200M20.300 10.500c-4.200.3-7.800 2.800-9.300 7.800"/>',
+    soccer: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55l4.76 -3.45"/><path d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45"/>',
+    swim: '<path d="M15 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M6 11l4 -2l3.5 3l-1.5 2"/><path d="M3 16.75a2.4 2.4 0 0 0 1 .25a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 1 -.25"/>',
+    tennis: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M6 5.3a9 9 0 0 1 0 13.4"/><path d="M18 5.3a9 9 0 0 0 0 13.4"/>',
+    volleyball: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 12a8 8 0 0 0 8 4"/><path d="M7.5 13.5a12 12 0 0 0 8.5 6.5"/><path d="M12 12a8 8 0 0 0 -7.464 4.928"/><path d="M12.951 7.353a12 12 0 0 0 -9.88 4.111"/><path d="M12 12a8 8 0 0 0 -.536 -8.928"/><path d="M15.549 15.147a12 12 0 0 0 1.38 -10.611"/>',
     wrestling: '<circle cx="12" cy="4.800" r="2.200"/><path d="M12 7.500v6.500M4.500 10.500L12 8.800l7.500 1.700M12 14l-4 6M12 14l4 6M4 21.800h16"/>',
     other: '<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.500A3 3 0 0 0 8 10.500M16 6h3v1.500a3 3 0 0 1-3 3M12 13v4M8.500 20h7M10 17h4"/>'
   };
@@ -578,14 +582,19 @@
       return h;
     }
     function cfgList(k, n) { var a = (S.cfg && S.cfg[k]) || []; return Array.isArray(a) ? a.filter(function (x) { return x && safeUrl(x.url); }).slice(0, n) : []; }
-    function a2hsSteps() {
-      var ua = navigator.userAgent || '', ios = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-      return ios ? T('Tap the <b>Share</b> button, then <b>Add to Home Screen</b>.') : T('Open the browser menu (<b>⋮</b>), then tap <b>Add to Home screen</b>.');
+    function TC(k) { var r = T(k); return LANG === 'es' ? r : r.replace(/(^|\s)([a-z])/g, function (m, a, b, off) { var w = r.slice(off + a.length).split(/\s/)[0]; return off > 0 && /^(on|to|of|a|an|the|in|and|for|or)$/.test(w) ? m : a + b.toUpperCase(); }); }
+    var A2 = { ios: 'Tap the <b>Share</b> button, then <b>Add to Home Screen</b>.', and: 'Open the browser menu (<b>⋮</b>), then tap <b>Add to Home screen</b>.',
+      pc: 'On a computer, click the install icon at the right end of the address bar in Chrome or Edge, or open the <b>⋮</b> menu, then <b>Save and share</b>, then <b>Install page as app</b>. In Safari on a Mac, choose <b>File</b>, then <b>Add to Dock</b>. You can also bookmark it with Ctrl+D (⌘D on a Mac).' };
+    function plat() { var ua = navigator.userAgent || ''; if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return 'ios'; return /Android/i.test(ua) ? 'and' : 'pc'; }
+    function a2hsSteps() { return T(A2[plat()]); }
+    function a2hsAll() {
+      var names = { ios: 'iPhone or iPad', and: 'Android', pc: 'Computer' }, me = plat(), order = [me].concat(['ios', 'and', 'pc'].filter(function (k) { return k !== me; }));
+      return order.map(function (k) { return '<div class="plat"><b>' + T(names[k]) + (k === me ? ' · ' + T('This device') : '') + '</b><p>' + T(A2[k]) + '</p></div>'; }).join('');
     }
     function a2hs() {
       var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
-      if (standalone || store('gcsd-ath-a2hs') || !/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent || '')) return '';
-      return '<div class="card lk a2"><div><h3 aria-level="2">' + T('Keep it on your home screen') + '</h3><p class="small">' + a2hsSteps() + ' ' + T('No download needed.') + '</p></div><button class="btn" data-act="a2x" aria-label="' + T('Dismiss') + '">' + T('Got it') + '</button></div>';
+      if (standalone || store('gcsd-ath-a2hs')) return '';
+      return '<div class="card lk a2"><div><h3 aria-level="2">' + T('Keep it on your home screen') + '</h3><p class="small">' + (plat() === 'pc' ? T('Use your browser’s install option, or bookmark this page. Steps are in Settings.') : a2hsSteps()) + ' ' + T('No download needed.') + '</p></div><button class="btn" data-act="a2x" aria-label="' + T('Dismiss') + '">' + T('Got it') + '</button></div>';
     }
     function extraLinks() {
       var h = '', po = cfgLink('playoffs');
@@ -597,9 +606,9 @@
         return '<a class="row" href="' + esc(x.url) + '" target="_blank" rel="noopener"><b>' + esc(String(pick(x, 'title')).slice(0, 140)) + '</b><span>' + esc(String(x.source || '').slice(0, 40)) + (x.date ? ' · ' + esc(String(x.date).slice(0, 20)) : '') + '</span></a>';
       }).join('') + '</div>';
       var fl = cfgList('follow', 8);
-      if (fl.length) h += '<div class="sect">' + T('Follow the Falcons elsewhere') + '</div><div class="card lst">' + fl.map(function (x) {
+      if (fl.length) h += '<button class="fold" data-act="fol" aria-expanded="' + !!S.fol + '"><span>' + T('Follow the Falcons elsewhere') + '</span><span aria-hidden="true">' + (S.fol ? '▴' : '▾') + '</span></button>' + (S.fol ? '<div class="card lst two">' + fl.map(function (x) {
         return '<a class="row" href="' + esc(x.url) + '" target="_blank" rel="noopener"><b>' + esc(String(pick(x, 'label')).slice(0, 40)) + '</b><span>' + esc(String(pick(x, 'note')).slice(0, 60)) + '</span></a>';
-      }).join('') + '</div>';
+      }).join('') + '</div>' : '');
       return h + a2hs();
     }
     function foot() {
@@ -748,9 +757,10 @@
     }
 
     function header() {
-      return '<div class="hero"><div class="hero-bg" aria-hidden="true"></div><button class="langb" data-act="setlang" data-v="' + (LANG === 'es' ? 'en' : 'es') + '" lang="' + (LANG === 'es' ? 'en' : 'es') + '">' + (LANG === 'es' ? 'English' : 'Español') + '</button><div class="hero-in">' +
+      return '<div class="hero"><div class="hero-bg" aria-hidden="true"></div><div class="langb" role="group" aria-label="Language / Idioma"><button data-act="setlang" data-v="en" lang="en" aria-pressed="' + (LANG !== 'es') + '" aria-label="English">EN</button><button data-act="setlang" data-v="es" lang="es" aria-pressed="' + (LANG === 'es') + '" aria-label="Español">ES</button></div><div class="hero-in">' +
         '<div class="logos" role="img" aria-label="Woodlands Falcons Athletics"><img src="' + esc(ASSET.falcon) + '" alt="" width="640" height="450"><img class="wm" src="' + esc(ASSET.wordmark) + '" alt="" width="960" height="277"></div>' +
-        '<p class="hero-up"><b>' + T('Updated') + '</b>' + (function () { var q = proseParts(S.updatedAt); return '<span class="d">' + esc(q.d) + '</span>' + (LANG === 'es' ? '<span class="tm">, ' + esc(q.t) + '</span>' : ' <span class="tm">at ' + esc(q.t) + '</span>'); })() + '</p></div></div>';
+        '</div>' +
+        '<p class="hero-up"><b>' + T('Updated') + '</b>' + (function () { var q = proseParts(S.updatedAt); return '<span class="d">' + esc(q.d) + '</span>' + (LANG === 'es' ? '<span class="tm">, ' + esc(q.t) + '</span>' : ' <span class="tm">at ' + esc(q.t) + '</span>'); })() + '</p></div>';
     }
 
     function intro() {
@@ -784,6 +794,7 @@
       if (cx.length && ch.length) rows.push('<li class="sh">' + T('Other recent changes') + '</li>');
       rows = rows.concat(ch.map(function (c) { return '<li>' + esc(chText(c)) + '</li>'; }));
       var title = cx.length ? T(cx.length === 1 ? '{n} game is canceled today' : '{n} games are canceled today', { n: cx.length }) : T('Recent changes');
+      if (!cx.length && !S.bxo) return '<div class="hlre"><button class="chip fold1" data-act="bxo" aria-expanded="false">⚠ ' + esc(T('Recent changes ({n})', { n: ch.length })) + '</button></div>';
       return hlBox('b', 'banner', title, rows, t + '|' + cx.map(function (e) { return e.id; }).join(',') + '|' + ch.map(function (c) { return c.text; }).join('|'), 'alerts');
     }
 
@@ -988,22 +999,22 @@
     function settingsTab() {
       function ch(act, v, label, on) { return '<button class="chip" data-act="' + act + '" data-v="' + v + '" aria-pressed="' + on + '">' + (act === 'setlang' ? label : T(label)) + '</button>'; }
       function sw(act, label, on, help) { label = T(label); return '<div class="sw"><span><b>' + label + '</b>' + (help ? '<br><small class="hlp">' + T(help) + '</small>' : '') + '</span><button class="tg" data-act="' + act + '" role="switch" aria-checked="' + on + '" aria-label="' + label + '"></button></div>'; }
-      var h = '<div class="set"><h3 aria-level="2">' + T('Language') + '</h3><div class="seg" role="group">' + ch('setlang', 'en', 'English', LANG === 'en') + ch('setlang', 'es', 'Español', LANG === 'es') + '</div></div>' +
-        '<div class="set"><h3 aria-level="2">' + T('Text size') + '</h3><p>' + T('Makes everything below the banner bigger.') + '</p><div class="seg" role="group">' + ch('settext', '0', 'Standard', S.set.text === 0) + ch('settext', '1', 'Large', S.set.text === 1) + ch('settext', '2', 'Largest', S.set.text === 2) + '</div></div>' +
-        '<div class="set"><h3 aria-level="2">' + T('Appearance') + '</h3><div class="seg" role="group">' + ch('setmode', 'auto', 'Auto', S.mode === 'auto') + ch('setmode', 'light', 'Light', S.mode === 'light') + ch('setmode', 'dark', 'Dark', S.mode === 'dark') + '</div>' +
+      var h = '<div class="set"><h3 aria-level="2">' + TC('Language') + '</h3><div class="seg" role="group">' + ch('setlang', 'en', 'English', LANG === 'en') + ch('setlang', 'es', 'Español', LANG === 'es') + '</div></div>' +
+        '<div class="set"><h3 aria-level="2">' + TC('Text size') + '</h3><p>' + T('Makes everything below the banner bigger.') + '</p><div class="seg" role="group">' + ch('settext', '0', 'Standard', S.set.text === 0) + ch('settext', '1', 'Large', S.set.text === 1) + ch('settext', '2', 'Largest', S.set.text === 2) + '</div></div>' +
+        '<div class="set"><h3 aria-level="2">' + TC('Appearance') + '</h3><div class="seg" role="group">' + ch('setmode', 'auto', 'Auto', S.mode === 'auto') + ch('setmode', 'light', 'Light', S.mode === 'light') + ch('setmode', 'dark', 'Dark', S.mode === 'dark') + '</div>' +
         sw('sethc', 'High contrast', S.set.hc, 'Black text, stronger outlines, plain card backgrounds.') + sw('setrm', 'Reduce motion', RM, RM0 ? 'Your phone already asks for this.' : 'Turns off sliding and fading.') + '</div>' +
-        '<div class="set"><h3 aria-level="2">' + T('Get change alerts') + '</h3><p>' + T('Subscribe to the calendar and your phone updates games when the schedule changes.') + ' <button class="lnk" data-act="tab" data-t="alerts">' + T('Show me how') + '</button></p></div>' +
-        '<div class="set"><h3 aria-level="2">' + T('Add to home screen') + '</h3><p>' + a2hsSteps() + ' ' + T('It opens like an app, with nothing to download.') + '</p></div>' +
-        '<div class="set"><h3 aria-level="2">' + T('What to show') + '</h3>' + sw('setcd', 'Countdowns', S.set.cd, 'For example “Starts in 30 min”.') + sw('setwx', 'Weather on home games', S.set.wx) +
+        '<div class="set"><h3 aria-level="2">' + TC('Get change alerts') + '</h3><p>' + T('Subscribe to the calendar and your phone updates games when the schedule changes.') + ' <button class="lnk" data-act="tab" data-t="alerts">' + T('Show me how') + '</button></p></div>' +
+        '<div class="set"><h3 aria-level="2">' + TC('Add to home screen') + '</h3><p>' + T('It opens like an app, with nothing to download.') + ' <button class="lnk" data-act="a2o" aria-expanded="' + !!S.a2open + '">' + T(S.a2open ? 'Hide steps' : 'Show me how') + '</button></p>' + (S.a2open ? a2hsAll() : '') + (store('gcsd-ath-a2hs') ? '<p class="small"><button class="lnk" data-act="a2r">' + T('Show the home screen tip again') + '</button></p>' : '') + '</div>' +
+        '<div class="set"><h3 aria-level="2">' + TC('What to show') + '</h3>' + sw('setcd', 'Countdowns', S.set.cd, 'For example “Starts in 30 min”.') + sw('setwx', 'Weather on home games', S.set.wx) +
         '<p>' + T('Calendar opens as') + '</p><div class="seg" role="group">' + ch('view', 'list', 'List', S.view === 'list') + ch('view', 'grid', 'Week', S.view === 'grid') + ch('view', 'month', 'Month', S.view === 'month') + '</div></div>';
       var presets = [[[], T('None')], [[30], T('30 min')], [[60], T('1 hour')], [[120], T('2 hours')]];
       function opt(m, sel) { return '<option value="' + m + '"' + (m === sel ? ' selected' : '') + '>' + (m === '' ? T('None') : remLabel(m)) + '</option>'; }
-      function sel(i) { var cur = S.set.rem.slice().sort(function (a, b) { return b - a; })[i]; cur = cur === undefined ? '' : cur; return '<label class="sel"><span>' + T(i ? 'Second alert' : 'Alert') + '</span><select data-act="setrem" data-i="' + i + '">' + opt('', cur) + REM.map(function (m) { return opt(m, cur); }).join('') + '</select></label>'; }
-      h += '<div class="set"><h3 aria-level="2">' + T('Game reminders') + '</h3><p>' + T('Your calendar app alerts you before each game. Pick up to two.') + '</p><div class="seg" role="group">' + presets.map(function (p) { return '<button class="chip" data-act="setrempre" data-v="' + p[0].join(',') + '" aria-pressed="' + (remCode(S.set.rem) === remCode(p[0])) + '">' + p[1] + '</button>'; }).join('') + '</div>' + sel(0) + sel(1) +
+      function sel(i) { var cur = S.set.rem[i]; cur = cur === undefined ? '' : cur; return '<label class="sel"><span>' + TC(i ? 'Second alert' : 'First alert') + '</span><select data-act="setrem" data-i="' + i + '">' + opt('', cur) + REM.map(function (m) { return opt(m, cur); }).join('') + '</select></label>'; }
+      h += '<div class="set"><h3 aria-level="2">' + TC('Game reminders') + '</h3><p>' + T('Your calendar app alerts you before each game. Pick up to two.') + '</p><div class="seg" role="group">' + presets.map(function (p) { return '<button class="chip" data-act="setrempre" data-v="' + p[0].join(',') + '" aria-pressed="' + (remCode(S.set.rem) === remCode(p[0])) + '">' + p[1] + '</button>'; }).join('') + '</div>' + sel(0) + sel(1) +
         '<p class="small">' + T('Changing this later? Subscribe again from the Alerts tab, then remove the old calendar. Google Calendar may use its own default alert instead.') + '</p></div>';
       var mine = S.mine.map(function (k) { return S.events.filter(function (e) { return e.teamKey === k; })[0]; }).filter(Boolean);
-      h += '<div class="set"><h3 aria-level="2">' + T('My teams') + '</h3>' + (mine.length ? mine.map(function (e) { return '<div class="mt1"><span>' + sportIcon(e.sportSlug) + ' ' + esc(teamLabel(e)) + '</span><button class="lnk" data-act="star" data-key="' + esc(e.teamKey) + '">' + T('Remove') + '</button></div>'; }).join('') : '<p>' + T('No teams followed yet. Tap ☆ on the Teams tab.') + '</p>') + '</div>' +
-        '<div class="set"><h3 aria-level="2">' + T('Reset') + '</h3><p>' + T('Clears your followed teams and these settings from this device. Nothing is sent anywhere.') + '</p><div class="acts"><button class="btn" data-act="resetall">' + T('Reset everything') + '</button></div></div>' +
+      h += '<div class="set"><h3 aria-level="2">' + TC('My teams') + '</h3>' + (mine.length ? mine.map(function (e) { return '<div class="mt1"><span>' + sportIcon(e.sportSlug) + ' ' + esc(teamLabel(e)) + '</span><button class="lnk" data-act="star" data-key="' + esc(e.teamKey) + '">' + T('Remove') + '</button></div>'; }).join('') : '<p>' + T('No teams followed yet. Tap ☆ on the Teams tab.') + '</p>') + '</div>' +
+        '<div class="set"><h3 aria-level="2">' + TC('Reset') + '</h3><p>' + T('Clears your followed teams and these settings from this device. Nothing is sent anywhere.') + '</p><div class="acts">' + (S.confirmReset ? '<p class="small" role="alert"><b>' + T('Are you sure? This clears your teams and settings on this device.') + '</b></p><button class="btn" data-act="resetall">' + T('Yes, reset everything') + '</button><button class="btn ghost" data-act="resetno">' + T('Cancel') + '</button>' : '<button class="btn" data-act="resetask">' + T('Reset everything') + '</button>') + '</div></div>' +
         '<p class="note">' + T('Settings are saved on this device only. No account, no tracking.') + '</p>';
       return h;
     }
@@ -1011,7 +1022,10 @@
     function openPrint(html) {
       var win = window.open('', '_blank');
       if (!win) { say(T('Allow pop-ups to print')); return; }
-      win.document.open(); win.document.write(html); win.document.close(); win.focus(); setTimeout(function () { try { win.print(); } catch (e) {} }, 350);
+      var bar = '<style>.pvb{position:sticky;top:0;z-index:9;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;background:#000;color:#fff;font:600 15px Arial,sans-serif}.pvb button{min-height:44px;padding:0 18px;font:700 15px Arial,sans-serif;border-radius:8px;border:2px solid #fff;background:#fff;color:#000;cursor:pointer}.pvb button.g{background:transparent;color:#fff}@media print{.pvb{display:none}}@media screen{body{padding:0 14px 24px}}</style>' +
+        '<div class="pvb" role="region" aria-label="' + esc(T('Print preview')) + '"><span>' + esc(T('Print preview')) + '</span><span><button class="g" onclick="window.close()">' + esc(T('Close')) + '</button> <button onclick="window.print()">' + esc(T('Print')) + '</button></span></div>';
+      html = html.replace('</head>', '</head>').replace(/<body>/, '<body>' + bar);
+      win.document.open(); win.document.write(html); win.document.close(); win.focus();
     }
     function printWeek() {
       var ws = S.weekStart, we = addDays(ws, 6), body = '', any = false;
@@ -1024,7 +1038,7 @@
         }).join('') + '</table>';
       }
       if (!any) body = '<p>' + T('No games this week for this view.') + '</p>';
-      var css = '@page{size:letter portrait;margin:.5in}*{box-sizing:border-box}body{font:12px/1.3 "Gill Sans","Gill Sans MT",Arial,sans-serif;color:#2d2926;margin:0}h1{margin:0;font-size:20px;color:#006b31}p{margin:2px 0 8px;color:#5b5752}h2{margin:14px 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #006b31;padding-bottom:2px}table{width:100%;border-collapse:collapse}td{padding:5px 6px;border-bottom:1px solid #dcdfe0;vertical-align:top}td.t{width:62px;font-weight:700}td.h{width:70px;text-align:right;font-weight:700;font-size:10.5px;letter-spacing:.05em}tr.home td.t,tr.home td.h{color:#006b31}tr.away td.t,tr.away td.h{color:#7a5800}tr.x td{color:#7a1a14}tr.x td.t,tr.x b{text-decoration:line-through}tr{page-break-inside:avoid}.f{margin-top:14px;font-size:10.5px;color:#5b5752}';
+      var css = '@page{size:letter portrait;margin:.5in}*{box-sizing:border-box}body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font:12px/1.3 "Gill Sans","Gill Sans MT",Arial,sans-serif;color:#000;margin:0}h1{margin:0 0 2px;font-size:32px;line-height:1.1;letter-spacing:-.01em;color:#000}p{margin:2px 0 8px;color:#333}h2{margin:14px 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #000;padding-bottom:2px}table{width:100%;border-collapse:collapse}td{padding:5px 6px;border-bottom:1px solid #dcdfe0;vertical-align:top}td.t{width:62px;font-weight:700}td.h{width:70px;text-align:right;font-weight:700;font-size:10.5px;letter-spacing:.05em}tr.home td.t,tr.home td.h{color:#000}tr.away td.t,tr.away td.h{color:#000}tr.x td{color:#000}tr.x td.t,tr.x b{text-decoration:line-through}tr{page-break-inside:avoid}.f{margin-top:14px;font-size:10.5px;color:#333}';
       openPrint('<!doctype html><html lang="' + LANG + '"><head><meta charset="utf-8"><title>Woodlands Falcons Athletics, ' + esc(T('week of {d}', { d: fmt(ws, { month: 'short', day: 'numeric' }) })) + '</title><style>' + css + '</style></head><body><h1>Woodlands Falcons Athletics</h1><p>' + esc(fmt(ws, { month: 'long', day: 'numeric' }) + ' – ' + fmt(we, { month: 'long', day: 'numeric', year: 'numeric' })) + ' · ' + esc(who) + '</p>' + body + '<div class="f">' + esc(T('Schedule as of {when}. Schedules can change; check greenburghcsd.org/athletics for the latest.', { when: prose(S.updatedAt) })) + '</div></body></html>');
     }
     function printMonth() {
@@ -1042,7 +1056,7 @@
         }
         rows += '</tr>';
       }
-      var css = '@page{size:letter landscape;margin:.35in}*{box-sizing:border-box}body{font:9px/1.15 "Gill Sans","Gill Sans MT",Arial,sans-serif;color:#2d2926;margin:0}h1{margin:0;font-size:17px;color:#006b31}p{margin:1px 0 4px;color:#5b5752}tr{page-break-inside:avoid}table{width:100%;border-collapse:collapse;table-layout:fixed}th{background:#00843d;color:#fff;font-size:9px;padding:2px;text-transform:uppercase}td{border:1px solid #a5acaf;vertical-align:top;height:.6in;padding:1px 2px}td.o{background:#f4f5f5}.n{font-weight:700;font-size:10px}.e{margin-top:1px;padding:0 2px;border-left:4px solid #00843d;background:var(--card)}.e.away{border-left-color:var(--away-bd);background:var(--away-bg)}.e.x{border-left-color:#b3261e;text-decoration:line-through;color:var(--ink-3)}.f{margin-top:3px;font-size:8px;color:#5b5752}';
+      var css = '@page{size:letter landscape;margin:.35in}*{box-sizing:border-box}body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font:9px/1.15 "Gill Sans","Gill Sans MT",Arial,sans-serif;color:#000;margin:0}h1{margin:0 0 2px;font-size:26px;line-height:1.1;color:#000}p{margin:1px 0 4px;color:#333}tr{page-break-inside:avoid}table{width:100%;border-collapse:collapse;table-layout:fixed}th{background:#000;color:#fff;font-size:9px;padding:2px;text-transform:uppercase}td{border:1px solid #a5acaf;vertical-align:top;height:.6in;padding:1px 2px}td.o{background:#f4f5f5}.n{font-weight:700;font-size:10px}.e{margin-top:1px;padding:0 2px;border-left:4px solid #000;background:#fff}.e.away{border-left-color:#555;background:#eee}.e.x{border-left-color:#000;text-decoration:line-through;color:#555}.f{margin-top:3px;font-size:8px;color:#333}';
       var html = '<!doctype html><html lang="' + LANG + '"><head><meta charset="utf-8"><title>Woodlands Falcons Athletics, ' + esc(monthLabel(ym)) + '</title><style>' + css + '</style></head><body><h1>Woodlands Falcons Athletics · ' + esc(monthLabel(ym)) + '</h1><p>' + esc(who) + (S.ha ? ', ' + T(S.ha === 'home' ? 'Home games only' : 'Away games only') : '') + '. ' + T('White boxes are home games, yellow are away.') + '</p><table><thead><tr>' +
         WDn().map(function (x) { return '<th>' + x + '</th>'; }).join('') + '</tr></thead><tbody>' + rows + '</tbody></table><div class="f">' + esc(T('Schedule as of {when}. Schedules can change; check greenburghcsd.org/athletics for the latest.', { when: prose(S.updatedAt) })) + '</div></body></html>';
       var win = window.open('', '_blank');
@@ -1107,7 +1121,12 @@
       else if (a === 'setrm') { S.set.rm = !RM; saveSet(); }
       else if (a === 'setcd') { S.set.cd = !S.set.cd; saveSet(); }
       else if (a === 'setwx') { S.set.wx = !S.set.wx; saveSet(); }
-      else if (a === 'resetall') { S.set = { rem: [60], text: 0, hc: false, rm: false, wx: true, cd: true }; S.mode = 'auto'; S.mine = []; S.onlyMine = false; S.dis = {}; saveSet(); store('gcsd-ath-mode', 'auto'); store('gcsd-ath-mine', []); store('gcsd-ath-hl', {}); }
+      else if (a === 'fol') { S.fol = !S.fol; }
+      else if (a === 'a2o') { S.a2open = !S.a2open; }
+      else if (a === 'bxo') { S.bxo = !S.bxo; }
+      else if (a === 'resetask') { S.confirmReset = true; }
+      else if (a === 'resetno') { S.confirmReset = false; }
+      else if (a === 'resetall') { S.confirmReset = false; try { localStorage.removeItem('gcsd-ath-a2hs'); } catch (e) {} S.set = { rem: [60], text: 0, hc: false, rm: false, wx: true, cd: true }; S.mode = 'auto'; S.mine = []; S.onlyMine = false; S.dis = {}; saveSet(); store('gcsd-ath-mode', 'auto'); store('gcsd-ath-mine', []); store('gcsd-ath-hl', {}); }
       else if (a === 'stoday') { S.sel = today(); S.weekStart = mondayOf(S.sel); S.open = null; S.stripCenter = 'smooth'; }
       else if (a === 'day') { S.sel = b.getAttribute('data-d'); S.weekStart = mondayOf(S.sel); S.open = null; }
       else if (a === 'wk') { S.fx = true; var n = Number(b.getAttribute('data-n')); S.weekStart = addDays(S.weekStart, n); S.sel = addDays(S.sel || S.weekStart, n); S.open = null; }
@@ -1121,6 +1140,7 @@
       else if (a === 'picksport') { var ix = teamIndex(), ks = Object.keys((ix.by[b.getAttribute('data-s')] || { teams: {} }).teams), allIn = ks.every(function (k) { return S.pick.indexOf(k) >= 0; }); S.pick = S.pick.filter(function (k) { return ks.indexOf(k) < 0; }); if (!allIn) S.pick = S.pick.concat(ks); }
       else if (a === 'clearpick') { S.pick = []; }
       else if (a === 'setlang') { var nl = b.getAttribute('data-v'); LANG = nl === 'es' ? 'es' : 'en'; store('gcsd-ath-lang', LANG); S.fx = false; }
+      else if (a === 'a2r') { try { localStorage.removeItem('gcsd-ath-a2hs'); } catch (e) {} }
       else if (a === 'a2x') { store('gcsd-ath-a2hs', 1); }
       else if (a === 'lv') { S.lv = b.getAttribute('data-v') || null; }
       else if (a === 'ha') { S.ha = b.getAttribute('data-v') || null; }

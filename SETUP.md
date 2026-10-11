@@ -29,3 +29,31 @@ One-time setup, about 10 minutes. Use a district-owned GitHub account or organiz
 
 ## Weather chip
 The refresh job also asks a free forecast service (Open-Meteo) for the Woodlands campus forecast and saves it into `schedule.json`, so visitors' phones never contact the weather service. If that step fails, the page simply shows no weather chip. Check the "Add the weather forecast" step in the Actions log after the first run.
+
+## Optional links and countdowns (assets/config.json)
+Edit `assets/config.json` in the repo; leave a value empty to hide it. Only https links are used.
+- `tickets`: GoFan link (adds a Tickets button on home games)
+- `live`: livestream link (adds Watch live on home games)
+- `playoffs`: bracket/tournament page (adds a link card)
+- `countdowns`: e.g. `[{"label":"Winter sports sign-up opens","date":"2026-11-02","url":"https://www.greenburghcsd.org","cta":"Sign up"}]`
+
+### Follow list and news (also in config.json)
+- `follow`: up to 8 `{label, note, url}` entries shown as "Follow the Falcons elsewhere".
+- `news`: up to 5 hand-approved `{title, source, date, url}` entries shown as "Falcons in the news". Headline and link only; empty = section hidden.
+
+### Spanish and language
+The widget shows Spanish automatically when a phone is set to Spanish, and anyone can switch with the pill in the top corner or in Settings. The choice is remembered on that device. Text in `config.json` can have a Spanish version: add `label_es`, `note_es`, `title_es` or `link_text_es` next to the English field (for example `"label": "Winter sports sign-up opens", "label_es": "Abren las inscripciones de deportes de invierno"`). Without a Spanish field, the English text is used.
+Note: calendar subscription feeds and the RSS feed are still English; the single-game "Add to calendar" file follows the chosen language.
+
+## Lobby display mode
+Open `assets/display.html` (or add `?display=1` to the page) on a hallway TV. It rotates games today and coming up every 12 seconds and reloads daily.
+
+## Optional config links
+In `config.json`, `boosters`, `sponsor` and `powered` each take `{ "label": "...", "url": "https://..." }` (https only). Leave blank to hide.
+
+## Weekly poster page
+`/poster.html` draws the "This Week's Events" poster in the browser from the latest `schedule.json`, so it is never older than the last refresh. Buttons: previous/next week, English/Español, **Print poster (11 × 8.5)** and **Check for updates** (re-reads the data on the spot). It also re-checks every 5 minutes and when the tab comes back into view.
+- Public poster (default): canceled games are hidden. `/poster.html?view=internal` shows canceled games and a data-as-of line. The internal link is not shown anywhere on the page; share it only with staff.
+- `?lang=es` opens in Spanish, `?date=2026-10-05` picks a week. Sundays open the coming week.
+- To print: Letter, Landscape, Margins None, Background graphics on, or choose Save as PDF.
+- A change that is not showing yet: press **Run workflow** on the Refresh athletics schedule action, wait about a minute, then press Check for updates.

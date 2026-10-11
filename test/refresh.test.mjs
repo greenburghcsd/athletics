@@ -101,3 +101,14 @@ test('old space-format start vs new T-format start is not a reschedule', async (
   assert.equal(falseResched({ kind: 'rescheduled', text: 'Boys Varsity Football vs. X, 2026-10-10 1:30PM (was 2026-10-10 1:30PM)' }), true);
   assert.equal(falseResched({ kind: 'rescheduled', text: 'Boys Varsity Football vs. X, 2026-10-10 2PM (was 2026-10-10 1:30PM)' }), false);
 });
+
+test('reminders: VALARM lines, codes and combos', async () => {
+  const { buildIcs, reminderCode, reminderCombos } = await import('../src/ics.mjs');
+  const e = { id: '1', status: 'scheduled', gender: 'Boys', level: 'Varsity', sport: 'Football', homeAway: 'home', opponent: 'X', venue: 'V', start: '2026-10-10T13:30:00', end: '2026-10-10T15:00:00', endKnown: true };
+  const ics = buildIcs([e, { ...e, id: '2', status: 'canceled' }], { name: 'n', updatedAt: 'x', alarms: [1440, 120] });
+  assert.equal((ics.match(/BEGIN:VALARM/g) || []).length, 2, 'two alarms on the live game, none on the canceled one');
+  assert.match(ics, /TRIGGER:-P1D/); assert.match(ics, /TRIGGER:-PT2H/);
+  assert.equal(reminderCode([120, 1440]), 'r1440-120');
+  assert.equal(reminderCombos().length, 29);
+  assert.ok(!/VALARM/.test(buildIcs([e], { name: 'n', updatedAt: 'x' })));
+});

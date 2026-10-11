@@ -1,0 +1,39 @@
+{
+  "tickets": "https://gofan.co/app/school/NY20948",
+  "live": "https://www.nfhsnetwork.com/schools/woodland-senior-high-school-white-plains-ny",
+  "playoffs": "",
+  "countdowns": [],
+  "follow": [
+    {
+      "label": "NFHS Network",
+      "note": "Livestreams and game video",
+      "url": "https://www.nfhsnetwork.com/schools/woodland-senior-high-school-white-plains-ny",
+      "note_es": "Transmisiones en vivo y video de juegos"
+    },
+    {
+      "label": "GoFan",
+      "note": "Tickets",
+      "url": "https://gofan.co/app/school/NY20948",
+      "note_es": "Boletos"
+    },
+    {
+      "label": "Hudl",
+      "note": "Game video",
+      "url": "https://fan.hudl.com/usa/ny/hartsdale/organization/14434/woodlands-high-school",
+      "note_es": "Video de juegos"
+    },
+    {
+      "label": "SportsEngine",
+      "note": "Local live",
+      "url": "https://sportsengineplay.com/Local-Live/Woodlands-Middle-High-School?viewType=list",
+      "note_es": "Transmisión local"
+    },
+    {
+      "label": "MaxPreps",
+      "note": "Rankings and stats",
+      "url": "https://www.maxpreps.com/ny/hartsdale/woodlands-falcons/",
+      "note_es": "Clasificaciones y estadísticas"
+    }
+  ],
+  "news": []
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>This Week's Events Poster, Woodlands Falcons Athletics</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#f4f3f0;--ink:#1f2a25;--ink2:#4a4f4b;--g:#00583f;--line:#cfd2d3}
+@media (prefers-color-scheme:dark){:root{--bg:#10201a;--ink:#eef3f0;--ink2:#b8c4bd;--line:#2c4a3e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 "Gill Sans","Gill Sans MT",Inter,Arial,sans-serif}
+.bar{max-width:1100px;margin:0 auto;padding:16px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.bar h1{font-size:20px;margin:0;flex:1 1 100%}
+.seg{display:inline-flex;border:2px solid var(--g);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;min-height:44px;padding:0 16px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--g);color:#fff}
+.btn{min-height:44px;padding:0 18px;border-radius:10px;border:2px solid var(--g);background:var(--g);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink)}
+button:focus-visible{outline:3px solid #fecb00;outline-offset:2px}
+.note{max-width:1100px;margin:0 auto;padding:0 16px 8px;color:var(--ink2);font-size:14px}
+.note a{color:inherit}
+#stage{max-width:1100px;margin:0 auto 24px;padding:0 16px}
+#frame{width:1736px;height:1341px;border:0;transform-origin:0 0;display:block;background:#00583f}
+#box{overflow:hidden;border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+#live{position:absolute;left:-9999px}
+@media print{#frame{transform:none!important;width:11in;height:8.5in}@page{size:11in 8.5in;margin:0}.bar,.note,#live{display:none}body{background:#fff}#stage{padding:0;margin:0;max-width:none}#box{box-shadow:none;border-radius:0;height:8.5in!important}}
+</style>
+</head>
+<body>
+<div class="bar">
+ <h1 id="h">This Week's Events poster</h1>
+ <div class="seg" role="group" aria-label="Week"><button id="prev" type="button">&larr; <span data-t="prev">Previous week</span></button><button id="next" type="button"><span data-t="next">Next week</span> &rarr;</button></div>
+ <div class="seg" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">English</button><button type="button" data-lang="es" aria-pressed="false">Español</button></div>
+ <button class="btn" id="print" type="button" data-t="print">Print poster (11 × 8.5)</button>
+ <button class="btn alt" id="upd" type="button" data-t="upd">Check for updates</button>
+</div>
+<p class="note" id="status"></p>
+<p class="note" id="help"></p>
+<div id="live" role="status" aria-live="polite"></div>
+<div id="stage"><div id="box"><iframe id="frame" title="Weekly events poster"></iframe></div></div>
+<script type="module">
+import { posterHtml } from './poster/poster.mjs';
+import { mondayOf, addDays } from './poster/print.mjs';
+const Q = new URLSearchParams(location.search);
+const VIEW = Q.get('view') === 'internal' ? 'internal' : 'public';   // internal = shows canceled games + data stamp
+let lang = Q.get('lang') === 'es' ? 'es' : 'en';
+const TZ = 'America/New_York';
+const nyDay = () => new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(new Date());
+const nyDow = () => new Date(nyDay() + 'T12:00:00Z').getUTCDay();
+// Sunday looks ahead to the coming week; every other day shows the current week.
+let week = /^\d{4}-\d{2}-\d{2}$/.test(Q.get('date') || '') ? mondayOf(Q.get('date')) : mondayOf(nyDow() === 0 ? addDays(nyDay(), 1) : nyDay());
+const TXT = {
+ en: { prev: 'Previous week', next: 'Next week', print: 'Print poster (11 × 8.5)', upd: 'Check for updates', h: "This Week's Events poster",
+  data: (t) => 'Schedule data from ' + t + '. It refreshes from the portal about every 10 minutes.', same: 'No changes since your last check.', changed: 'Updated with the latest schedule.', fail: 'Could not check for updates. Showing the last data loaded.',
+  help: 'Printing: choose Letter, Landscape, Margins None, and turn Background graphics on. Then print or save as PDF.', sooner: 'Staff: a change not showing yet? Press Run workflow on', link: 'the refresh page' },
+ es: { prev: 'Semana anterior', next: 'Semana siguiente', print: 'Imprimir póster (11 × 8.5)', upd: 'Buscar actualizaciones', h: 'Póster de eventos de esta semana',
+  data: (t) => 'Datos del calendario al ' + t + '. Se actualizan desde el portal cada 10 minutos aproximadamente.', same: 'Sin cambios desde la última revisión.', changed: 'Actualizado con el calendario más reciente.', fail: 'No se pudo buscar actualizaciones. Se muestran los últimos datos cargados.',
+  help: 'Para imprimir: elige Carta, Horizontal, Márgenes Ninguno, y activa Gráficos de fondo. Luego imprime o guarda como PDF.', sooner: 'Personal: ¿no aparece un cambio? Presiona Run workflow en', link: 'la página de actualización' }
+};
+const prose = (d) => d.toLocaleString(lang === 'es' ? 'es-US' : 'en-US', { timeZone: TZ, month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }).replace(/\s?([ap])\.?\s?m\.?/i, (m, x) => ' ' + x.toUpperCase() + 'M');
+const $ = (id) => document.getElementById(id);
+const frame = $('frame'), box = $('box');
+let data = null;
+async function load() {
+  const r = await fetch('schedule.json?_=' + Date.now(), { cache: 'no-store' });
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+function fit() {
+  const w = Math.min(1736, box.clientWidth);
+  const k = w / 1736;
+  frame.style.transform = 'scale(' + k + ')';
+  box.style.height = Math.round(1341 * k) + 'px';
+}
+function draw() {
+  if (!data) return;
+  const pub = VIEW === 'public';
+  const ev = data.events || [];
+  frame.srcdoc = posterHtml(ev, week, { assets: 'poster', showCanceled: !pub, generated: pub ? '' : prose(new Date()), asOf: pub ? '' : prose(new Date(data.updatedAt)), lang });
+  const t = TXT[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach((e) => { e.textContent = t[e.dataset.t]; });
+  $('h').textContent = t.h;
+  $('status').textContent = t.data(prose(new Date(data.updatedAt)));
+  $('help').innerHTML = t.help + ' ' + t.sooner + ' <a href="https://github.com/greenburghcsd/athletics/actions/workflows/refresh.yml">' + t.link + '</a>.';
+  document.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  document.title = t.h + ', Woodlands Falcons Athletics';
+}
+async function check(manual) {
+  try {
+    const d = await load();
+    const changed = !data || d.updatedAt !== data.updatedAt || JSON.stringify(d.events) !== JSON.stringify(data.events);
+    data = d; if (changed) draw();
+    if (manual) $('live').textContent = changed ? TXT[lang].changed : TXT[lang].same;
+    if (manual) { $('status').textContent = (changed ? TXT[lang].changed + ' ' : TXT[lang].same + ' ') + TXT[lang].data(prose(new Date(data.updatedAt))); }
+  } catch (e) { if (manual) $('status').textContent = TXT[lang].fail; }
+}
+document.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => { lang = b.dataset.lang; draw(); }));
+$('prev').addEventListener('click', () => { week = addDays(week, -7); draw(); });
+$('next').addEventListener('click', () => { week = addDays(week, 7); draw(); });
+$('upd').addEventListener('click', () => check(true));
+$('print').addEventListener('click', () => { frame.contentWindow.focus(); frame.contentWindow.print(); });
+addEventListener('resize', fit);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) check(false); });
+setInterval(() => check(false), 5 * 60 * 1000);
+fit();
+check(false);
+</script>
+</body>
+</html>

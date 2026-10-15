@@ -1,7 +1,7 @@
 name: Refresh athletics schedule
 on:
-  schedule: [{ cron: '*/10 * * * *' }]
-  workflow_dispatch: {}
+  schedule: [{ cron: '*/10 * * * *' }]   # every 10 minutes, best effort
+  workflow_dispatch: {}                  # the "Run workflow" button
   push: { branches: [main] }
 permissions: { contents: read, pages: write, id-token: write }
 concurrency: { group: pages, cancel-in-progress: false }
@@ -13,14 +13,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Start from the last published schedule
+      - name: Start from the last published schedule (keeps canceled flags and the change log)
         run: curl -fsS "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/schedule.json" -o data/schedule.json || echo "no published copy yet; using the seed"
       - name: Pull the portal
         run: node src/refresh.mjs --once
-        continue-on-error: true
+        continue-on-error: true            # a bad pull keeps the previous good data
       - name: Add the weather forecast
         run: node src/weather.mjs
-        continue-on-error: true
+        continue-on-error: true            # no forecast just means no weather chip
+      - name: Install the minifier
+        run: npm install --no-save --no-audit --no-fund esbuild
+        continue-on-error: true            # without it the widget publishes unminified
       - run: node tools/build-static.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -28,9 +31,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.d.outputs.page_url }}
+    environment: { name: github-pages, url: '${{ steps.d.outputs.page_url }}' }
     steps:
       - id: d
         uses: actions/deploy-pages@v4

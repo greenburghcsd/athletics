@@ -61,3 +61,9 @@ In `config.json`, `boosters`, `sponsor` and `powered` each take `{ "label": "...
 ## Share preview and icons
 - `assets/og.jpg` (1200×630) is the preview image when the link is texted or posted. The `og:` tags in `assets/demo.html` point to `https://greenburghcsd.github.io/athletics/og.jpg`; change both URLs if the address changes. Previews are per page, not per game.
 - Sport icons come from Tabler Icons (MIT license), embedded in `widget.js`.
+
+## Protecting the widget
+- `LICENSE` and the header at the top of `assets/widget.js` state that it is licensed to Greenburgh CSD only.
+- The Actions build minifies `widget.js` with esbuild before publishing, so the live file is compact and its names are scrambled. The readable source stays in `assets/widget.js`. If esbuild fails to install, the site still publishes, unminified.
+- The widget only runs on approved hosts: greenburghcsd.org (and subdomains), greenburghcsd.github.io, firemakerllc.com, localhost. Anywhere else it shows a notice pointing to greenburghcsd.org/athletics. To approve another address (for example a new Edlio domain), add it to the `LICENSED` list near the bottom of `assets/widget.js`.
+- Remember this is a deterrent, not a lock: browser code can always be read. The real protection is the license plus the data pipeline staying in your repo.

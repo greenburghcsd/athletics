@@ -1,6 +1,7 @@
-/*! Woodlands Falcons Athletics widget. Paste into an Edlio embed:
- *  <div data-gcsd-athletics data-theme="spirit"></div>
- *  <script src=".../widget.js"><\/script>
+/*! Woodlands Falcons Athletics widget. (c) 2026 FireMaker LLC. All rights reserved.
+ *  Licensed for use by Greenburgh Central School District only. No copying, modification,
+ *  redistribution or reuse without written permission from FireMaker LLC. See LICENSE.
+ *  Embed: <div data-gcsd-athletics data-theme="spirit"></div>  <script src=".../widget.js"></script>
  *  data-theme: "spirit" (lightly expressive, the default) or "classic" (conservative). Data comes from schedule.json next to this file. */
 (function () {
   'use strict';
@@ -138,7 +139,7 @@
     'What to show': 'Qué mostrar', 'Countdowns': 'Cuentas regresivas', 'For example “Starts in 30 min”.': 'Por ejemplo, “Empieza en 30 min”.',
     'Weather on home games': 'Clima en los juegos de local', 'Calendar opens as': 'El calendario se abre en',
     'Game reminders': 'Recordatorios de juegos', 'Your calendar app alerts you before each game. Pick up to two.': 'Tu app de calendario te avisa antes de cada juego. Elige hasta dos.',
-    'None': 'Ninguno', '30 min': '30 min', '1 hour': '1 hora', '2 hours': '2 horas', 'Alert': 'Aviso', 'First alert': 'Primer aviso', 'Second alert': 'Segundo aviso',
+    'None': 'Ninguno', '30 min': '30 min', '1 hour': '1 hora', '2 hours': '2 horas', 'Alert': 'Aviso', 'First alert': 'Primer aviso', '1 day': '1 día', '1 hr': '1 h', '2 hr': '2 h', 'Second alert': 'Segundo aviso',
     'At time of game': 'A la hora del juego', '1 day before': '1 día antes', '2 days before': '2 días antes', '1 hour before': '1 hora antes', '2 hours before': '2 horas antes', '{n} minutes before': '{n} minutos antes',
     'Changing this later? Subscribe again from the Alerts tab, then remove the old calendar. Google Calendar may use its own default alert instead.': '¿Quieres cambiarlo después? Vuelve a suscribirte desde la pestaña Alertas y elimina el calendario anterior. Google Calendar puede usar su propio aviso predeterminado.',
     'Remove': 'Quitar', 'No teams followed yet. Tap ☆ on the Teams tab.': 'Aún no sigues ningún equipo. Toca ☆ en la pestaña Equipos.',
@@ -211,7 +212,7 @@
     '@container (max-width:460px){.hero-in{padding-top:calc(var(--h) * .2 + 34px)}}',
     '.hero-in img{display:block;height:var(--h);width:auto;flex:none;max-width:none}',
     '.hero-in img.wm{height:calc(var(--h) * .66)}',
-    '.hero-up{position:relative;margin:0;padding:9px 16px;text-align:center;background:#FECB00;color:#000;font-size:clamp(12px,1.2cqw + 6px,14px);letter-spacing:.05em;text-transform:uppercase;line-height:1.3;font-weight:600}',
+    '.hero-up{position:relative;margin:0;padding:5px 16px;text-align:center;background:#FECB00;color:#000;font-size:clamp(12px,1.2cqw + 6px,14px);letter-spacing:.05em;text-transform:uppercase;line-height:1.3;font-weight:600}',
     '.hero-up .tm{white-space:nowrap}',
     '.hero-up b{display:inline;margin-right:.45em;font:inherit;letter-spacing:inherit;text-transform:inherit;font-weight:inherit;color:inherit;opacity:1}',
     '',
@@ -222,8 +223,9 @@
     '.hd{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;padding:14px 16px 12px;border-bottom:3px solid var(--green)}',
     '.hd h2{margin:0;font-size:19px;line-height:1.15}',
     '.hd .up{font-size:13px;color:var(--ink-2);white-space:nowrap}',
-    '.banner{margin:12px 16px 12px;padding:10px 12px;border-radius:8px;background:var(--red-10);border:1.5px solid var(--red);color:var(--red-ink);font-size:15px}',
+    '.banner{margin:12px 16px 16px;padding:10px 12px;border-radius:8px;background:var(--red-10);border:1.5px solid var(--red);color:var(--red-ink);font-size:15px}',
     '.banner b{display:block}',
+    'button.banner.fold1{display:flex;justify-content:space-between;align-items:center;gap:8px;width:calc(100% - 32px);min-height:48px;font:inherit;font-weight:600;text-align:left;cursor:pointer}',
     '.banner ul{margin:4px 0 0;padding-left:18px}',
     '.hlbox{position:relative;padding-right:44px}',
     '.hlre{margin:8px 16px 0}.hlre .chip{min-height:36px;font-size:13.5px}',
@@ -352,6 +354,7 @@
     '.g.cx .t,.g.cx .who,.g.cx .opp{text-decoration:line-through;color:var(--ink-3)}',
     '.g.away .t,.g.away .cd{color:var(--mus)}',
     '.g.cx .t{color:var(--red)}',
+    '.g.cx,.spirit .g.cx{background:var(--red-10);border-color:var(--red);border-left-color:var(--red);color:var(--red-ink)}.g.cx .t,.g.cx .who,.g.cx .opp{color:var(--red-ink)}.g.cx .tag{background:transparent;border-color:var(--red);color:var(--red-ink)}.g.cx .tag.x{background:var(--red);color:#fff}.w.dark .g.cx .tag.x{color:#1a0a09}.g.cx .more,.g.cx .more p,.g.cx .more strong{color:var(--red-ink)}.g.cx .more{border-top-color:var(--red)}.g.cx .more .btn,.g.cx .more .btn.fill{background:transparent;border:2px solid var(--red);color:var(--red-ink)}.g.cx .star{color:var(--red)}',
     '.wc.a b,.chips .c.a b{color:var(--mus)}',
     '.wc.x b,.chips .c.x b{color:var(--red)}',
     '.more{padding:0 0 14px 82px;display:grid;gap:10px}',
@@ -452,6 +455,10 @@
     '.day,.btn,.chip,.wk,.gb,.wc,.cell,.vt button,.seg3 button,.nav button,.sbtn{transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .12s ease,box-shadow .18s ease}',
     '.day:active,.btn:active,.chip:active,.wk:active,.wc:active,.cell:active,.vt button:active,.nav button:active{transform:scale(.97)}',
     '.gb:active{background:var(--gray-10)}',
+    '.hlbox.pulse{animation:gc-ring 1.1s ease-out .35s 1 both}',
+    '.cd.tick{animation:gc-tick .35s ease-out}',
+    '@keyframes gc-ring{0%{box-shadow:0 0 0 0 rgba(179,38,30,.45)}70%{box-shadow:0 0 0 12px rgba(179,38,30,0)}100%{box-shadow:0 0 0 0 rgba(179,38,30,0)}}',
+    '@keyframes gc-tick{from{opacity:.2;transform:translateY(-3px)}to{opacity:1;transform:none}}',
     '@keyframes gc-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}',
     '}',
     /* ---- polish pass: calmer, rounder, glass tab bar, grouped settings (Apple-style) ---- */
@@ -487,6 +494,7 @@
     '.sw{border-top:1px solid var(--gray-30);padding:6px 0}.sw:first-of-type{border-top:0}.hlp{color:var(--ink-2)}',
     '.intro{border-bottom:0;padding:18px 20px 6px}.intro h1{font-size:28px;font-weight:700;letter-spacing:-.01em}.intro p{margin:2px 0 0;color:var(--ink-2)}',
     '.sub h3{letter-spacing:-.01em}',
+    '.slot{display:grid;gap:6px}.slh{margin:0;font-weight:600;color:var(--ink)}.seg .chip[disabled]{opacity:.4}.slot .seg .chip{white-space:nowrap;padding-inline:6px}',
     '.sub h3,.dayh{text-wrap:balance}.subr .lnk{white-space:nowrap}',
     '@media (max-width:480px){.sub h3,.dayh{font-size:15px}.spirit .sub h3,.spirit .dayh{letter-spacing:.015em}.sub{gap:6px}}',
     '.toast{background:rgba(30,30,30,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}',
@@ -520,7 +528,7 @@
     swim: '<path d="M15 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M6 11l4 -2l3.5 3l-1.5 2"/><path d="M3 16.75a2.4 2.4 0 0 0 1 .25a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 1 -.25"/>',
     tennis: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M6 5.3a9 9 0 0 1 0 13.4"/><path d="M18 5.3a9 9 0 0 0 0 13.4"/>',
     volleyball: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 12a8 8 0 0 0 8 4"/><path d="M7.5 13.5a12 12 0 0 0 8.5 6.5"/><path d="M12 12a8 8 0 0 0 -7.464 4.928"/><path d="M12.951 7.353a12 12 0 0 0 -9.88 4.111"/><path d="M12 12a8 8 0 0 0 -.536 -8.928"/><path d="M15.549 15.147a12 12 0 0 0 1.38 -10.611"/>',
-    wrestling: '<circle cx="12" cy="4.800" r="2.200"/><path d="M12 7.500v6.500M4.500 10.500L12 8.800l7.500 1.700M12 14l-4 6M12 14l4 6M4 21.800h16"/>',
+    wrestling: '<path d="M12.409 13.017A5 5 0 0 1 22 15c0 3.866-4 7-9 7-4.077 0-8.153-.82-10.371-2.462-.426-.316-.631-.832-.62-1.362C2.118 12.723 2.627 2 10 2a3 3 0 0 1 3 3 2 2 0 0 1-2 2c-1.105 0-1.64-.444-2-1"/><path d="M15 14a5 5 0 0 0-7.584 2"/><path d="M9.964 6.825C8.019 7.977 9.5 13 8 15"/>',
     other: '<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.500A3 3 0 0 0 8 10.500M16 6h3v1.500a3 3 0 0 1-3 3M12 13v4M8.500 20h7M10 17h4"/>'
   };
   function sportIcon(slug) {
@@ -582,6 +590,21 @@
       return h;
     }
     function cfgList(k, n) { var a = (S.cfg && S.cfg[k]) || []; return Array.isArray(a) ? a.filter(function (x) { return x && safeUrl(x.url); }).slice(0, n) : []; }
+    function titleize(rootEl) {
+      if (LANG === 'es') return;
+      var small = /^(a|an|and|as|at|by|for|in|of|on|or|the|to|vs\.?)$/;
+      var els = rootEl.querySelectorAll('h1,h2,h3,.chip,.btn,.lnk,.sect,.fold span:first-child,.slh,.pill,.tag,.nav button span,.sel span,.banner span:first-child,.shead .lnk,.langb');
+      for (var i = 0; i < els.length; i++) {
+        var kids = els[i].childNodes;
+        for (var j = 0; j < kids.length; j++) {
+          var n = kids[j]; if (n.nodeType !== 3 || n.nodeValue.length > 60) continue;
+          var parts = n.nodeValue.split(/(\s+)/), first = true;
+          for (var q = 0; q < parts.length; q++) { var w = parts[q]; if (!w || /^\s+$/.test(w)) continue; var m = /^([^A-Za-z]*)([a-z][a-z'’]*)(.*)$/.exec(w); if (m && !m[3].match(/[a-z]/i) && !(small.test(m[2]) && !first && q > 0)) parts[q] = m[1] + m[2].charAt(0).toUpperCase() + m[2].slice(1) + m[3]; first = false; }
+          var nv = parts.join(''); if (nv !== n.nodeValue) n.nodeValue = nv;
+        }
+      }
+    }
+    function slots() { var r = S.set.rems; if (!r) { var l = S.set.rem.slice().sort(function (a, b) { return b - a; }); r = [l[0] === undefined ? null : l[0], l[1] === undefined ? null : l[1]]; } return r; }
     function TC(k) { var r = T(k); return LANG === 'es' ? r : r.replace(/(^|\s)([a-z])/g, function (m, a, b, off) { var w = r.slice(off + a.length).split(/\s/)[0]; return off > 0 && /^(on|to|of|a|an|the|in|and|for|or)$/.test(w) ? m : a + b.toUpperCase(); }); }
     var A2 = { ios: 'Tap the <b>Share</b> button, then <b>Add to Home Screen</b>.', and: 'Open the browser menu (<b>⋮</b>), then tap <b>Add to Home screen</b>.',
       pc: 'On a computer, click the install icon at the right end of the address bar in Chrome or Edge, or open the <b>⋮</b> menu, then <b>Save and share</b>, then <b>Install page as app</b>. In Safari on a Mac, choose <b>File</b>, then <b>Add to Dock</b>. You can also bookmark it with Ctrl+D (⌘D on a Mac).' };
@@ -690,7 +713,7 @@
     }
     function tickClock() {
       var els = root.querySelectorAll ? root.querySelectorAll('.cd') : [];
-      for (var i = 0; i < els.length; i++) { var c = els[i]; c.textContent = cdText(c.getAttribute('data-s'), c.getAttribute('data-e'), c.getAttribute('data-k') === '0' ? false : true, c.getAttribute('data-d')) || ''; }
+      for (var i = 0; i < els.length; i++) { var c = els[i]; var nt = cdText(c.getAttribute('data-s'), c.getAttribute('data-e'), c.getAttribute('data-k') === '0' ? false : true, c.getAttribute('data-d')) || ''; if (nt !== c.textContent) { c.textContent = nt; c.classList.remove('tick'); void c.offsetWidth; c.classList.add('tick'); } }
     }
     function wxHtml(e) {
       if (e.status === 'canceled' || e.homeAway !== 'home' || !/Woodlands/i.test(e.venue) || !S.weather || !S.weather.hours || !S.set.wx) return '';
@@ -740,7 +763,7 @@
     function gameHtml(e) {
       var cx = e.status === 'canceled', open = S.open === e.id, mine = S.mine.indexOf(e.teamKey) >= 0, ch = cx ? null : chgOf(e);
       var was = ch && ch.kind === 'rescheduled' && ch.oldTime ? (ch.oldDate && ch.oldDate !== e.date ? T('Was {x}', { x: fmt(ch.oldDate, { month: 'short', day: 'numeric' }) + ', ' + oldTm(ch.oldTime) }) : T('Was {x}', { x: oldTm(ch.oldTime) })) : '';
-      var tag = ch ? (ch.kind === 'rescheduled' ? T('Time changed') : ch.kind === 'venue' ? T('Venue changed') : ch.kind === 'added' ? T('New') : '') : '';
+      var tag = ch ? (ch.kind === 'rescheduled' ? '' : ch.kind === 'venue' ? T('Venue changed') : ch.kind === 'added' ? T('New') : '') : '';
       var h = '<li class="g ' + e.homeAway + (cx ? ' cx' : '') + (tag ? ' chg' : '') + '"><button class="gb" data-act="open" data-id="' + esc(e.id) + '" aria-expanded="' + open + '">' +
         '<span class="t">' + esc(tm(e)) + (was ? '<small class="was">' + esc(was) + '</small>' : '') + '</span>' +
         '<span><span class="who">' + (mine ? '★ ' : '') + esc(teamLabel(e)) + '</span><span class="opp">' + esc(vs(e)) + '</span>' + cdHtml(e) + wxHtml(e) + '</span>' +
@@ -769,9 +792,9 @@
     }
 
     function hlBox(k, cls, title, rows, sig, roleLabel) {
-      if (S.dis[k] === sig) return '<div class="hlre"><button class="chip" data-act="hlr" data-k="' + k + '">' + (k === 'b' ? T('⚠ Show alerts') : T('★ Show next up')) + '</button></div>';
-      var open = !!S.hlOpen[k], more = rows.length > 1;
-      return '<div class="' + cls + ' hlbox" role="status"><button class="xb" data-act="hlc" data-k="' + k + '" data-sig="' + esc(sig) + '" aria-label="' + T('Close ' + roleLabel) + '">×</button><b>' + title + '</b>' +
+      if (S.dis[k] === sig) return k === 'b' ? '<button class="banner fold1" data-act="hlr" data-k="b" aria-expanded="false"><span>' + T('⚠ Show alerts') + '</span><span aria-hidden="true">▾</span></button>' : '<div class="hlre"><button class="chip" data-act="hlr" data-k="' + k + '">' + T('★ Show next up') + '</button></div>';
+      var open = !!S.hlOpen[k], more = rows.length > 1, pk = k + sig; S.pulT = S.pulT || {}; if (!S.pulT[pk]) S.pulT[pk] = Date.now(); var pulse = k === 'b' && Date.now() - S.pulT[pk] < 1500;
+      return '<div class="' + cls + ' hlbox' + (pulse ? ' pulse' : '') + '" role="status"><button class="xb" data-act="hlc" data-k="' + k + '" data-sig="' + esc(sig) + '" aria-label="' + T('Close ' + roleLabel) + '">×</button><b>' + title + '</b>' +
         '<ul class="' + (open ? 'open' : '') + '">' + rows.join('') + '</ul>' +
         (more ? '<button class="lnk" data-act="hlx" data-k="' + k + '" aria-expanded="' + open + '">' + (open ? T('Show less') : T('Show all ({n})', { n: rows.filter(function (r) { return r.indexOf('class="sh"') < 0; }).length })) + '</button>' : '') + '</div>';
     }
@@ -794,7 +817,7 @@
       if (cx.length && ch.length) rows.push('<li class="sh">' + T('Other recent changes') + '</li>');
       rows = rows.concat(ch.map(function (c) { return '<li>' + esc(chText(c)) + '</li>'; }));
       var title = cx.length ? T(cx.length === 1 ? '{n} game is canceled today' : '{n} games are canceled today', { n: cx.length }) : T('Recent changes');
-      if (!cx.length && !S.bxo) return '<div class="hlre"><button class="chip fold1" data-act="bxo" aria-expanded="false">⚠ ' + esc(T('Recent changes ({n})', { n: ch.length })) + '</button></div>';
+      if (!cx.length && !S.bxo) return '<button class="banner fold1" data-act="bxo" aria-expanded="false"><span>⚠ ' + esc(T('Recent changes ({n})', { n: ch.length })) + '</span><span aria-hidden="true">▾</span></button>';
       return hlBox('b', 'banner', title, rows, t + '|' + cx.map(function (e) { return e.id; }).join(',') + '|' + ch.map(function (c) { return c.text; }).join('|'), 'alerts');
     }
 
@@ -1007,10 +1030,15 @@
         '<div class="set"><h3 aria-level="2">' + TC('Add to home screen') + '</h3><p>' + T('It opens like an app, with nothing to download.') + ' <button class="lnk" data-act="a2o" aria-expanded="' + !!S.a2open + '">' + T(S.a2open ? 'Hide steps' : 'Show me how') + '</button></p>' + (S.a2open ? a2hsAll() : '') + (store('gcsd-ath-a2hs') ? '<p class="small"><button class="lnk" data-act="a2r">' + T('Show the home screen tip again') + '</button></p>' : '') + '</div>' +
         '<div class="set"><h3 aria-level="2">' + TC('What to show') + '</h3>' + sw('setcd', 'Countdowns', S.set.cd, 'For example “Starts in 30 min”.') + sw('setwx', 'Weather on home games', S.set.wx) +
         '<p>' + T('Calendar opens as') + '</p><div class="seg" role="group">' + ch('view', 'list', 'List', S.view === 'list') + ch('view', 'grid', 'Week', S.view === 'grid') + ch('view', 'month', 'Month', S.view === 'month') + '</div></div>';
-      var presets = [[[], T('None')], [[30], T('30 min')], [[60], T('1 hour')], [[120], T('2 hours')]];
-      function opt(m, sel) { return '<option value="' + m + '"' + (m === sel ? ' selected' : '') + '>' + (m === '' ? T('None') : remLabel(m)) + '</option>'; }
-      function sel(i) { var cur = S.set.rem[i]; cur = cur === undefined ? '' : cur; return '<label class="sel"><span>' + TC(i ? 'Second alert' : 'First alert') + '</span><select data-act="setrem" data-i="' + i + '">' + opt('', cur) + REM.map(function (m) { return opt(m, cur); }).join('') + '</select></label>'; }
-      h += '<div class="set"><h3 aria-level="2">' + TC('Game reminders') + '</h3><p>' + T('Your calendar app alerts you before each game. Pick up to two.') + '</p><div class="seg" role="group">' + presets.map(function (p) { return '<button class="chip" data-act="setrempre" data-v="' + p[0].join(',') + '" aria-pressed="' + (remCode(S.set.rem) === remCode(p[0])) + '">' + p[1] + '</button>'; }).join('') + '</div>' + sel(0) + sel(1) +
+      var SLOTOPT = [null, 30, 60, 120, 1440], sl = slots();
+      function slotHtml(i) {
+        var other = sl[1 - i];
+        return '<div class="slot"><p class="slh">' + TC(i ? 'Second alert' : 'First alert') + '</p><div class="seg" role="group" aria-label="' + esc(TC(i ? 'Second alert' : 'First alert')) + '">' + SLOTOPT.map(function (m) {
+          var lab = m === null ? T('None') : m === 1440 ? T('1 day') : m === 60 ? T('1 hr') : m === 120 ? T('2 hr') : T('{n} min', { n: m }), on = sl[i] === m, dis = m !== null && other === m;
+          return '<button class="chip" data-act="setslot" data-i="' + i + '" data-v="' + (m === null ? '' : m) + '" aria-pressed="' + on + '"' + '>' + lab + '</button>';
+        }).join('') + '</div></div>';
+      }
+      h += '<div class="set"><h3 aria-level="2">' + TC('Game reminders') + '</h3><p>' + T('Your calendar app alerts you before each game. Pick up to two.') + '</p>' + slotHtml(0) + slotHtml(1) +
         '<p class="small">' + T('Changing this later? Subscribe again from the Alerts tab, then remove the old calendar. Google Calendar may use its own default alert instead.') + '</p></div>';
       var mine = S.mine.map(function (k) { return S.events.filter(function (e) { return e.teamKey === k; })[0]; }).filter(Boolean);
       h += '<div class="set"><h3 aria-level="2">' + TC('My teams') + '</h3>' + (mine.length ? mine.map(function (e) { return '<div class="mt1"><span>' + sportIcon(e.sportSlug) + ' ' + esc(teamLabel(e)) + '</span><button class="lnk" data-act="star" data-key="' + esc(e.teamKey) + '">' + T('Remove') + '</button></div>'; }).join('') : '<p>' + T('No teams followed yet. Tap ☆ on the Teams tab.') + '</p>') + '</div>' +
@@ -1079,6 +1107,7 @@
       var ae = root.activeElement, keep = ae && ae.getAttribute && ae.getAttribute('data-act') ? keyOf(ae) : null;
       var body = S.tab === 'today' ? todayTab() : S.tab === 'week' ? weekTab() : S.tab === 'teams' ? teamsTab() : S.tab === 'settings' ? settingsTab() : alertsTab();
       w.innerHTML = header() + '<div class="main' + (S.tab === 'week' && (S.view === 'month' || S.view === 'grid') ? ' wide' : '') + '">' + intro() + '<div class="body' + (S.fx ? ' fx' : '') + '">' + body + (S.tab === 'today' || S.tab === 'week' ? extraLinks() : '') + foot() + '</div><div class="pad"></div>' + nav() + '</div>' + (S.toast ? '<div class="toast" role="status">' + esc(S.toast) + '</div>' : '');
+      titleize(w);
       var hb = w.querySelector('.hero-bg'); if (hb) hb.style.setProperty('--bg-img', 'url("' + ASSET.bg + '")');
       parallax();
       var row = w.querySelector('.srow');
@@ -1096,12 +1125,6 @@
       if (S.focusTeam) { var te = root.querySelector('[data-team="' + S.focusTeam.replace(/"/g, '') + '"]'); if (te && te.scrollIntoView) te.scrollIntoView({ block: 'center' }); S.focusTeam = null; }
     }
 
-    root.addEventListener('change', function (ev) {
-      var t = ev.target; if (!t || t.getAttribute('data-act') !== 'setrem') return;
-      var vals = root.querySelectorAll('[data-act=setrem]'), l = [];
-      for (var i = 0; i < vals.length; i++) { var v = vals[i].value; if (v !== '') { v = Number(v); if (l.indexOf(v) < 0) l.push(v); } }
-      S.set.rem = l; saveSet(); render();
-    });
     function saveSet() { store('gcsd-ath-set', S.set); }
     function find(id) { return S.events.filter(function (e) { return e.id === id; })[0]; }
 
@@ -1113,9 +1136,9 @@
       else if (a === 'mode') { S.mode = isDark() ? 'light' : 'dark'; store('gcsd-ath-mode', S.mode); }
       else if (a === 'setmode') { S.mode = b.getAttribute('data-v'); store('gcsd-ath-mode', S.mode); }
       else if (a === 'hlx') { var hk = b.getAttribute('data-k'); S.hlOpen[hk] = !S.hlOpen[hk]; }
-      else if (a === 'hlr') { delete S.dis[b.getAttribute('data-k')]; store('gcsd-ath-hl', S.dis); }
-      else if (a === 'hlc') { S.dis[b.getAttribute('data-k')] = b.getAttribute('data-sig'); store('gcsd-ath-hl', S.dis); }
-      else if (a === 'setrempre') { var rv = b.getAttribute('data-v'); S.set.rem = rv ? rv.split(',').map(Number) : []; saveSet(); }
+      else if (a === 'hlr') { if (b.getAttribute('data-k') === 'b') S.bxo = true; delete S.dis[b.getAttribute('data-k')]; store('gcsd-ath-hl', S.dis); }
+      else if (a === 'hlc') { if (b.getAttribute('data-k') === 'b') S.bxo = false; S.dis[b.getAttribute('data-k')] = b.getAttribute('data-sig'); store('gcsd-ath-hl', S.dis); }
+      else if (a === 'setslot') { var si = Number(b.getAttribute('data-i')), sv = b.getAttribute('data-v'), r2 = slots().slice(); r2[si] = sv === '' ? null : Number(sv); if (r2[si] !== null && r2[1 - si] === r2[si]) r2[1 - si] = null; S.set.rems = r2; S.set.rem = r2.filter(function (x) { return x !== null; }); saveSet(); }
       else if (a === 'settext') { S.set.text = Number(b.getAttribute('data-v')); saveSet(); }
       else if (a === 'sethc') { S.set.hc = !S.set.hc; saveSet(); }
       else if (a === 'setrm') { S.set.rm = !RM; saveSet(); }
@@ -1126,7 +1149,7 @@
       else if (a === 'bxo') { S.bxo = !S.bxo; }
       else if (a === 'resetask') { S.confirmReset = true; }
       else if (a === 'resetno') { S.confirmReset = false; }
-      else if (a === 'resetall') { S.confirmReset = false; try { localStorage.removeItem('gcsd-ath-a2hs'); } catch (e) {} S.set = { rem: [60], text: 0, hc: false, rm: false, wx: true, cd: true }; S.mode = 'auto'; S.mine = []; S.onlyMine = false; S.dis = {}; saveSet(); store('gcsd-ath-mode', 'auto'); store('gcsd-ath-mine', []); store('gcsd-ath-hl', {}); }
+      else if (a === 'resetall') { S.confirmReset = false; try { localStorage.removeItem('gcsd-ath-a2hs'); } catch (e) {} S.set = { rem: [60], rems: [60, null], text: 0, hc: false, rm: false, wx: true, cd: true }; S.mode = 'auto'; S.mine = []; S.onlyMine = false; S.dis = {}; saveSet(); store('gcsd-ath-mode', 'auto'); store('gcsd-ath-mine', []); store('gcsd-ath-hl', {}); }
       else if (a === 'stoday') { S.sel = today(); S.weekStart = mondayOf(S.sel); S.open = null; S.stripCenter = 'smooth'; }
       else if (a === 'day') { S.sel = b.getAttribute('data-d'); S.weekStart = mondayOf(S.sel); S.open = null; }
       else if (a === 'wk') { S.fx = true; var n = Number(b.getAttribute('data-n')); S.weekStart = addDays(S.weekStart, n); S.sel = addDays(S.sel || S.weekStart, n); S.open = null; }
@@ -1185,7 +1208,23 @@
     document.addEventListener('visibilitychange', function () { if (!document.hidden) load(); });
   }
 
-  function init() { var hosts = document.querySelectorAll('[data-gcsd-athletics]'); for (var i = 0; i < hosts.length; i++) if (!hosts[i].__gcsd) { hosts[i].__gcsd = 1; mount(hosts[i]); } }
+  /* Licensed hosts. Anyone embedding this on another site sees a notice instead of the schedule. */
+  var LICENSED = ['greenburghcsd.org', 'greenburghcsd.github.io', 'firemakerllc.com', 'localhost', '127.0.0.1'];
+  function licensed() {
+    var h = String(location.hostname || '').toLowerCase();
+    if (!h || location.protocol === 'file:') return true;
+    return LICENSED.some(function (d) { return h === d || h.slice(-(d.length + 1)) === '.' + d; });
+  }
+  function unlicensed(el) {
+    el.textContent = '';
+    var p = document.createElement('p');
+    p.setAttribute('role', 'status');
+    p.style.cssText = 'font:16px/1.4 Arial,sans-serif;padding:16px;border:2px solid #00843d;border-radius:12px;color:#2d2926;background:#fff';
+    p.appendChild(document.createTextNode('This schedule is licensed to Greenburgh Central School District. Find it at '));
+    var a = document.createElement('a'); a.href = 'https://greenburghcsd.org/athletics'; a.textContent = 'greenburghcsd.org/athletics'; a.style.color = '#006b31';
+    p.appendChild(a); p.appendChild(document.createTextNode('.')); el.appendChild(p);
+  }
+  function init() { var hosts = document.querySelectorAll('[data-gcsd-athletics]'); for (var i = 0; i < hosts.length; i++) if (!hosts[i].__gcsd) { hosts[i].__gcsd = 1; if (licensed()) mount(hosts[i]); else unlicensed(hosts[i]); } }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
-  window.GCSDAthletics = { mount: mount, init: init };
+  window.GCSDAthletics = { mount: function (h) { if (licensed()) mount(h); else unlicensed(h); }, init: init };
 })();

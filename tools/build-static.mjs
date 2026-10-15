@@ -11,6 +11,14 @@ const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' })
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT + 'ics', { recursive: true }); mkdirSync(OUT + 'rss', { recursive: true });
 cpSync(ROOT + 'assets/', OUT, { recursive: true });
+// Minify the widget for publishing (the readable source stays in the repo). Falls back to the plain file if esbuild isn't installed.
+try {
+  const { transformSync } = await import('esbuild');
+  const src = readFileSync(OUT + 'widget.js', 'utf8');
+  const min = transformSync(src, { minify: true, legalComments: 'inline', target: 'es2017' }).code;
+  writeFileSync(OUT + 'widget.js', min);
+  console.log(`widget.js minified ${src.length} -> ${min.length} bytes`);
+} catch (e) { console.log('esbuild not available, publishing widget.js unminified'); }
 writeFileSync(OUT + 'index.html', readFileSync(OUT + 'demo.html', 'utf8'));
 writeFileSync(OUT + 'schedule.json', JSON.stringify(data));
 writeFileSync(OUT + 'changes.json', JSON.stringify(data.changes || []));
